@@ -1,0 +1,48 @@
+# +------+-----------------------------+
+# |      |sun mon tus ..............sat|
+# |  5   | 1   2   3                 7 |
+# |      | 8   9   10                  |
+# |      | 15                          |
+# +------+-----------------------------+
+<Button>:
+    font_size: 14
+    color: 0,0,0,1
+    background_color: 0.8,0.8,0.8,1
+    background_normal:''
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Line:    # --- adds a border --- #
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+<MyCalendar>:
+    orientation: 'horizontal'
+    BoxLayout:
+        size_hint: 0.15,1
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1,0.28
+            orientation: 'horizontal'
+            Button:
+                id: id_month_minus
+                text: '<'
+                on_release: root.on_change_month(-1)
+            Button:
+                id: id_month_plus
+                text: '>'
+                on_release: root.on_change_month(+1)
+        Button:
+            id: id_month
+            size_hint:1,0.72
+            font_size: 30
+            text: '5'
+            background_color: 0.75,0.75,0.75,1
+    GridLayout:
+        size_hint: 0.85,1
+        padding: 0
+        spacing: 0
+        rows : 7
+        cols : 7
+        id   : id_table6x7
+     
+
