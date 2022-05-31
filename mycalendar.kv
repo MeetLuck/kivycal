@@ -8,37 +8,38 @@
     font_size: 14
     color: 0,0,0,1
     background_normal:''
-    #background_color: 0.8,0.8,0.8,1
-    canvas.before:
-        Color:
-            rgba: 0.5, 0.5, 0.5, 0
-        Line:    # --- adds a border --- #
-            width: 1
-            rectangle: self.x, self.y, self.width, self.height
+    background_color: 0.8,0.8,0.8,0
+
 <MyCalendar>:
     orientation: 'horizontal'
     BoxLayout:
-        size_hint: 0.15,1
+        size_hint: 0.2,1
         orientation: 'vertical'
         BoxLayout:
             size_hint: 1,0.28
             orientation: 'horizontal'
             Button:
+                bold:True
                 id: id_month_minus
-                text: '<'
+                text: '[size=16][b]<[/b][/size]'
+                markup: True
                 on_release: root.on_change_month(-1)
             Button:
+                bold:True
                 id: id_month_plus
-                text: '>'
+                text: '[size=16][b]>[/b][/size]'
+                markup: True
                 on_release: root.on_change_month(+1)
         Button:
             id: id_month
+            bold: True
             size_hint:1,0.72
-            font_size: 30
+            font_size: self.height * 0.6
+            color: 0,0,0,0.5
             text: '5'
             #background_color: 0.75,0.75,0.75,1
     GridLayout:
-        size_hint: 0.85,1
+        size_hint: 0.8,1
         padding: 0
         spacing: 0
         rows : 7
